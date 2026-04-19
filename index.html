@@ -4,984 +4,470 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ROI 퍼퓸 비누 로즈향 — Rose Ritual</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       🎛 FONT SIZE CONTROL — 여기서 조절하세요
+       --base-size 를 바꾸면 전체 텍스트 크기 변경
+       기본값: 16px / 권장 범위: 14px ~ 20px
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
     :root {
-      --ivory: #faf6f1;
-      --ivory-deep: #f3ece4;
-      --ivory-soft: #f8f2ed;
-      --rose: #ba6d80;
-      --rose-deep: #8f4a5b;
-      --rose-pale: #ead6dc;
-      --wine: #4a2a31;
-      --text-primary: #2f2226;
-      --text-soft: #6d565d;
-      --text-faint: #9d858b;
-      --gold: #b79b73;
-      --line: rgba(143,74,91,0.16);
-      --bg-gradient: linear-gradient(160deg, #f7efe8 0%, #f5e7e3 42%, #efe2dd 100%);
+      --base-size: 16px;
+
+      --ivory:      #faf6f1;
+      --ivory-deep: #f4ece6;
+      --rose-deep:  #8f4a5b;
+      --wine:       #4a2a31;
+      --text-p:     #2f2226;
+      --text-s:     #6d565d;
+      --text-f:     #9d858b;
+      --gold:       #b79b73;
+      --line:       rgba(143,74,91,0.16);
+      --gold-line:  rgba(183,155,115,0.42);
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html { font-size: 16px; scroll-behavior: smooth; }
-
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: var(--base-size); scroll-behavior: smooth; }
     body {
       font-family: 'Noto Serif KR', serif;
-      background: var(--ivory);
-      color: var(--text-primary);
+      background: #fff;
+      color: var(--text-p);
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
+    img { display: block; max-width: 100%; }
 
-    img { max-width: 100%; display: block; }
-
-    /* ── LABEL ── */
-    .label {
+    .lbl {
       font-family: 'Montserrat', sans-serif;
-      font-size: 10px;
-      letter-spacing: 3.4px;
+      font-size: .625rem;
+      letter-spacing: .34em;
       text-transform: uppercase;
       color: var(--rose-deep);
     }
+    .lbl-f { color: var(--text-f); }
+    .script { font-family: 'Cormorant Garamond', serif; font-style: italic; }
 
-    .label-faint {
-      color: var(--text-faint);
-      letter-spacing: 2.2px;
-    }
+    /* ── section border ── */
+    .sec { border-top: 1px solid var(--line); }
 
-    /* ── SECTION WRAPPER ── */
-    .section {
-      width: 100%;
-      border-top: 1px solid var(--line);
-    }
+    /* ── max-width inner ── */
+    .w { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+    @media(min-width:768px){ .w { padding: 0 64px; } }
 
-    .inner {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    @media (min-width: 768px) {
-      .inner { padding: 0 64px; }
-    }
-
-    /* ══════════════════════════════════════
-       SECTION 1 — HERO
-    ══════════════════════════════════════ */
-    #hero {
-      background: var(--bg-gradient);
-      border-top: none;
-    }
-
-    .hero-inner {
-      max-width: 960px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-    }
-
-    @media (min-width: 768px) {
-      .hero-inner {
-        flex-direction: row;
-        min-height: 820px;
-      }
-    }
-
-    /* Hero left — image card */
-    .hero-left {
-      padding: 40px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-bottom: 1px solid var(--line);
-    }
-
-    @media (min-width: 768px) {
-      .hero-left {
-        width: 50%;
-        padding: 64px;
-        border-bottom: none;
-        border-right: 1px solid var(--line);
-      }
-    }
-
-    .hero-card {
-      background: white;
-      box-shadow: 0 18px 48px rgba(84,51,59,0.08);
-      border: 1px solid rgba(255,255,255,0.75);
-      width: 100%;
-      max-width: 351px;
-    }
-
-    .hero-card img {
-      width: 100%;
-      height: 280px;
-      object-fit: cover;
-    }
-
-    @media (min-width: 768px) {
-      .hero-card img { height: 495px; }
-    }
-
-    .hero-card-caption {
-      padding: 16px 21px;
-      text-align: center;
-    }
-
-    /* Hero right — copy */
-    .hero-right {
-      padding: 48px 24px 40px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    @media (min-width: 768px) {
-      .hero-right {
-        width: 50%;
-        padding: 64px;
-      }
-    }
-
-    .hero-eyebrow { margin-bottom: 8px; }
-
-    .hero-script {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: clamp(36px, 8vw, 60px);
-      color: var(--gold);
-      line-height: 1;
-      margin-bottom: 16px;
-    }
-
-    .hero-h1 {
-      font-size: clamp(32px, 7vw, 48px);
-      font-weight: 500;
-      line-height: 1.32;
-      color: var(--text-primary);
-      margin-bottom: 20px;
-    }
-
-    .hero-sub {
-      font-size: 18px;
-      font-weight: 400;
-      color: var(--wine);
-      line-height: 1.55;
-      margin-bottom: 24px;
-      padding-bottom: 24px;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .hero-desc {
-      font-size: 15px;
-      color: var(--text-soft);
-      line-height: 1.7;
-      margin-bottom: 32px;
-    }
-
-    .hero-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .tag {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 10px;
-      letter-spacing: 1.8px;
-      text-transform: uppercase;
-      color: var(--rose-deep);
-      background: rgba(255,255,255,0.6);
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      padding: 9px 17px;
-      white-space: nowrap;
-    }
-
-    /* ══════════════════════════════════════
-       SECTION 2 — PAIN POINTS
-    ══════════════════════════════════════ */
-    #pain {
-      background: white;
-    }
-
-    .pain-inner {
-      max-width: 960px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
-
-    @media (min-width: 768px) {
-      .pain-inner {
-        flex-direction: row;
-      }
-    }
-
-    .pain-left {
-      padding: 60px 24px;
-      flex: 1;
-      border-bottom: 1px solid var(--line);
-    }
-
-    @media (min-width: 768px) {
-      .pain-left {
-        padding: 80px 64px;
-        border-bottom: none;
-        border-right: 1px solid var(--line);
-      }
-    }
-
-    .pain-eyebrow { margin-bottom: 16px; }
-
-    .pain-h2 {
-      font-size: clamp(26px, 5vw, 36px);
-      font-weight: 500;
-      line-height: 1.45;
-      color: var(--text-primary);
-      margin-bottom: 32px;
-    }
-
-    .pain-list {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .pain-item {
-      font-size: 15px;
-      line-height: 1.7;
-      color: var(--text-soft);
-      padding-bottom: 20px;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .pain-item:last-child { border-bottom: none; padding-bottom: 0; }
-
-    .pain-right {
-      flex: 1;
-      position: relative;
-      min-height: 320px;
-      overflow: hidden;
-    }
-
-    @media (min-width: 768px) {
-      .pain-right { min-height: 560px; }
-    }
-
-    .pain-right img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    /* ══════════════════════════════════════
-       SECTION 3 — 3 REASONS
-    ══════════════════════════════════════ */
-    #reasons {
-      background: var(--ivory);
-    }
-
-    .reasons-inner {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 72px 24px;
-    }
-
-    @media (min-width: 768px) {
-      .reasons-inner { padding: 80px 64px; }
-    }
-
-    .reasons-header {
-      text-align: center;
-      margin-bottom: 56px;
-    }
-
-    .reasons-eyebrow { margin-bottom: 12px; }
-
-    .reasons-h2 {
-      font-size: clamp(26px, 5vw, 36px);
-      font-weight: 500;
-      line-height: 1.45;
-      color: var(--text-primary);
-      margin-bottom: 12px;
-    }
-
-    .reasons-sub {
-      font-size: 15px;
-      color: var(--text-soft);
-      line-height: 1.7;
-    }
-
-    .reasons-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 24px;
-    }
-
-    @media (min-width: 600px) {
-      .reasons-grid { grid-template-columns: repeat(3, 1fr); }
-    }
-
-    .reason-card {
-      background: white;
-      border: 1px solid var(--line);
-      box-shadow: 0 18px 48px rgba(84,51,59,0.06);
-      padding: 32px 28px;
-    }
-
-    .reason-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 18px;
-      font-weight: 400;
-      color: var(--gold);
-      margin-bottom: 12px;
-      letter-spacing: 2px;
-    }
-
-    .reason-title {
-      font-size: 18px;
-      font-weight: 500;
-      color: var(--text-primary);
-      line-height: 1.4;
-      margin-bottom: 12px;
-    }
-
-    .reason-desc {
-      font-size: 14px;
-      color: var(--text-soft);
-      line-height: 1.75;
-    }
-
-    /* ══════════════════════════════════════
-       SECTION 4 — SCENT EXPERIENCE
-    ══════════════════════════════════════ */
-    #scent {
-      background: white;
-    }
-
-    .scent-inner {
-      max-width: 960px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-    }
-
-    @media (min-width: 768px) {
-      .scent-inner { flex-direction: row; }
-    }
-
-    .scent-image {
-      flex: 1;
-      min-height: 320px;
-      overflow: hidden;
-      position: relative;
-    }
-
-    @media (min-width: 768px) {
-      .scent-image { min-height: 560px; }
-    }
-
-    .scent-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .scent-image-caption {
-      position: absolute;
-      bottom: 16px;
-      left: 16px;
-    }
-
-    .scent-copy {
-      flex: 1;
-      padding: 60px 24px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    @media (min-width: 768px) {
-      .scent-copy {
-        padding: 80px 64px;
-        border-left: 1px solid var(--line);
-      }
-    }
-
-    .scent-eyebrow { margin-bottom: 16px; }
-
-    .scent-h2 {
-      font-size: clamp(28px, 5vw, 40px);
-      font-weight: 500;
-      line-height: 1.35;
-      color: var(--text-primary);
-      margin-bottom: 40px;
-    }
-
-    .scent-stages {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
-
-    .scent-stage {
-      padding: 20px 0;
-      border-bottom: 1px solid var(--line);
-      display: flex;
-      gap: 20px;
-      align-items: flex-start;
-    }
-
-    .scent-stage:first-child { padding-top: 0; }
-
-    .stage-label-wrap {
-      flex-shrink: 0;
-      width: 80px;
-    }
-
-    .stage-label {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 9px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--rose-deep);
-      display: block;
-      margin-bottom: 4px;
-    }
-
-    .stage-title {
-      font-size: 15px;
-      font-weight: 500;
-      color: var(--text-primary);
-    }
-
-    .stage-desc {
-      font-size: 14px;
-      color: var(--text-soft);
-      line-height: 1.7;
-    }
-
-    /* ══════════════════════════════════════
-       SECTION 5 — INGREDIENTS
-    ══════════════════════════════════════ */
-    #ingredients {
-      background: var(--ivory-deep);
-    }
-
-    .ingredients-inner {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 72px 24px;
-    }
-
-    @media (min-width: 768px) {
-      .ingredients-inner { padding: 80px 64px; }
-    }
-
-    .ingredients-header {
-      margin-bottom: 40px;
-    }
-
-    .ingredients-eyebrow { margin-bottom: 12px; }
-
-    .ingredients-h2 {
-      font-size: clamp(26px, 5vw, 36px);
-      font-weight: 500;
-      line-height: 1.45;
-      color: var(--text-primary);
-      margin-bottom: 12px;
-    }
-
-    .ingredients-desc {
-      font-size: 15px;
-      color: var(--text-soft);
-      line-height: 1.7;
-      max-width: 600px;
-    }
-
-    .ingredients-layout {
-      display: flex;
-      flex-direction: column;
-      gap: 32px;
-    }
-
-    @media (min-width: 768px) {
-      .ingredients-layout {
-        flex-direction: row;
-        gap: 48px;
-        align-items: flex-start;
-      }
-    }
-
-    .ingredients-img {
-      width: 100%;
-      max-width: 480px;
-    }
-
-    @media (min-width: 768px) {
-      .ingredients-img { width: 50%; }
-    }
-
-    .ingredients-img img {
-      width: 100%;
-      aspect-ratio: 4/3;
-      object-fit: cover;
-    }
-
-    .ingredients-list-wrap {
-      flex: 1;
-    }
-
-    .ing-item {
-      padding: 16px 0;
-      border-bottom: 1px solid var(--line);
-      display: flex;
-      gap: 16px;
-      align-items: flex-start;
-    }
-
-    .ing-item:first-child { padding-top: 0; }
-
-    .ing-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--rose-deep);
-      margin-top: 8px;
-      flex-shrink: 0;
-    }
-
-    .ing-name {
-      font-size: 15px;
-      font-weight: 500;
-      color: var(--text-primary);
-      margin-bottom: 4px;
-    }
-
-    .ing-desc {
-      font-size: 13px;
-      color: var(--text-soft);
-      line-height: 1.6;
-    }
-
-    /* ══════════════════════════════════════
-       SECTION 6 — BRAND / LAB
-    ══════════════════════════════════════ */
-    #brand {
-      background: white;
-    }
-
-    .brand-inner {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 72px 24px;
-    }
-
-    @media (min-width: 768px) {
-      .brand-inner { padding: 80px 64px; }
-    }
-
-    .brand-eyebrow { margin-bottom: 12px; }
-
-    .brand-h2 {
-      font-size: clamp(26px, 5vw, 36px);
-      font-weight: 500;
-      line-height: 1.45;
-      color: var(--text-primary);
-      margin-bottom: 16px;
-    }
-
-    .brand-desc {
-      font-size: 15px;
-      color: var(--text-soft);
-      line-height: 1.7;
-      max-width: 640px;
-      margin-bottom: 40px;
-    }
-
-    .brand-img {
-      width: 100%;
-      aspect-ratio: 16/7;
-      object-fit: cover;
-    }
-
-    .brand-stats {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1px;
-      background: var(--line);
-      border: 1px solid var(--line);
-      margin-top: 40px;
-    }
-
-    @media (min-width: 600px) {
-      .brand-stats { grid-template-columns: repeat(4, 1fr); }
-    }
-
-    .stat-cell {
-      background: white;
-      padding: 28px 20px;
-      text-align: center;
-    }
-
-    .stat-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 32px;
-      font-weight: 400;
-      color: var(--rose-deep);
-      margin-bottom: 4px;
-    }
-
-    .stat-label {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 10px;
-      letter-spacing: 1.8px;
-      text-transform: uppercase;
-      color: var(--text-faint);
-    }
-
-    /* ══════════════════════════════════════
-       SECTION 7 — PACKAGE + GIFT
-    ══════════════════════════════════════ */
-    #package {
-      background: var(--ivory);
-    }
-
-    .package-inner {
-      max-width: 960px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-    }
-
-    @media (min-width: 768px) {
-      .package-inner { flex-direction: row; }
-    }
-
-    .package-copy {
-      flex: 1;
-      padding: 60px 24px;
-    }
-
-    @media (min-width: 768px) {
-      .package-copy {
-        padding: 80px 64px;
-        border-right: 1px solid var(--line);
-      }
-    }
-
-    .package-eyebrow { margin-bottom: 12px; }
-
-    .package-h2 {
-      font-size: clamp(26px, 5vw, 36px);
-      font-weight: 500;
-      line-height: 1.45;
-      color: var(--text-primary);
-      margin-bottom: 16px;
-    }
-
-    .package-desc {
-      font-size: 15px;
-      color: var(--text-soft);
-      line-height: 1.7;
-      margin-bottom: 32px;
-    }
-
-    .package-features {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .pkg-feature {
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
-      padding-bottom: 16px;
-      border-bottom: 1px solid var(--line);
-      font-size: 14px;
-      color: var(--text-soft);
-      line-height: 1.6;
-    }
-
-    .pkg-feature:last-child { border-bottom: none; }
-
-    .pkg-icon {
-      font-size: 16px;
-      flex-shrink: 0;
-      margin-top: 1px;
-    }
-
-    .package-image {
-      flex: 1;
-      min-height: 320px;
-      overflow: hidden;
-    }
-
-    @media (min-width: 768px) {
-      .package-image { min-height: auto; }
-    }
-
-    .package-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    /* ══════════════════════════════════════
-       SECTION 8 — FAQ
-    ══════════════════════════════════════ */
-    #faq {
-      background: white;
-    }
-
-    .faq-inner {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 72px 24px;
-    }
-
-    @media (min-width: 768px) {
-      .faq-inner { padding: 80px 64px; }
-    }
-
-    .faq-eyebrow { margin-bottom: 12px; }
-
-    .faq-h2 {
-      font-size: clamp(26px, 5vw, 36px);
-      font-weight: 500;
-      color: var(--text-primary);
-      margin-bottom: 40px;
-    }
-
-    .faq-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
-
-    .faq-item {
-      border-top: 1px solid var(--line);
-    }
-
-    .faq-item:last-child {
-      border-bottom: 1px solid var(--line);
-    }
-
-    .faq-question {
-      width: 100%;
-      background: none;
-      border: none;
-      padding: 24px 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      cursor: pointer;
-      text-align: left;
-      gap: 16px;
-    }
-
-    .faq-q-text {
-      font-family: 'Noto Serif KR', serif;
-      font-size: 17px;
-      font-weight: 500;
-      color: var(--text-primary);
-      line-height: 1.5;
-    }
-
-    .faq-icon {
-      flex-shrink: 0;
-      width: 20px;
-      height: 20px;
-      position: relative;
-    }
-
-    .faq-icon svg {
-      width: 100%;
-      height: 100%;
-      transition: transform 0.3s ease;
-    }
-
-    .faq-item.open .faq-icon svg {
-      transform: rotate(180deg);
-    }
-
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.35s ease, padding 0.35s ease;
-    }
-
-    .faq-item.open .faq-answer {
-      max-height: 300px;
-    }
-
-    .faq-a-text {
-      font-size: 15px;
-      color: var(--text-soft);
-      line-height: 1.75;
-      padding-bottom: 24px;
-    }
-
-    /* ══════════════════════════════════════
-       SECTION 9 — CTA
-    ══════════════════════════════════════ */
-    #cta {
-      background: linear-gradient(180deg, #f5ece9 0%, #f0e3dd 100%);
-    }
-
-    .cta-inner {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 100px 24px;
-      text-align: center;
-    }
-
-    @media (min-width: 768px) {
-      .cta-inner { padding: 120px 64px; }
-    }
-
-    .cta-eyebrow { margin-bottom: 20px; }
-
-    .cta-h2 {
-      font-size: clamp(28px, 6vw, 48px);
-      font-weight: 500;
-      color: var(--text-primary);
-      line-height: 1.35;
-      margin-bottom: 16px;
-    }
-
-    .cta-desc {
-      font-size: 15px;
-      color: var(--text-soft);
-      line-height: 1.75;
-      max-width: 520px;
-      margin: 0 auto 40px;
-    }
-
-    .cta-btn {
-      display: inline-block;
-      background: var(--wine);
-      color: white;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 11px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      padding: 20px 40px;
-      text-decoration: none;
-      margin-bottom: 20px;
-      transition: background 0.2s;
-    }
-
-    .cta-btn:hover { background: var(--rose-deep); }
-
-    .cta-tagline {
-      font-family: 'Cormorant Garamond', serif;
-      font-style: italic;
-      font-size: 15px;
-      color: var(--text-faint);
-      letter-spacing: 0.5px;
-    }
-
-    /* ══════════════════════════════════════
-       FOOTER
-    ══════════════════════════════════════ */
-    footer {
-      background: var(--ivory-deep);
-      border-top: 1px solid var(--line);
-    }
-
-    .footer-brand {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 32px 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid var(--line);
-    }
-
-    @media (min-width: 768px) {
-      .footer-brand { padding: 32px 64px; }
-    }
-
-    .footer-contact {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 28px 24px;
-      text-align: center;
-      font-size: 14px;
-      color: var(--text-soft);
-      line-height: 1.7;
-    }
-
-    @media (min-width: 768px) {
-      .footer-contact { padding: 28px 64px; }
-    }
-
-    .footer-contact a {
-      color: var(--rose-deep);
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    /* ══════════════════════════════════════
-       PRINT STYLES
-    ══════════════════════════════════════ */
-    @media print {
-      body { font-size: 12px; }
-      .hero-right, .pain-left, .reasons-grid, .scent-copy { padding: 24px; }
-      .faq-item.open .faq-answer { max-height: none; }
-      .faq-answer { max-height: none !important; }
-      .cta-btn { display: none; }
-      * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-    }
-
-    /* ══════════════════════════════════════
-       ANIMATIONS
-    ══════════════════════════════════════ */
-    .fade-in {
+    /* ── scroll reveal ── */
+    .rv {
       opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
+      transform: translateY(28px);
+      transition: opacity .85s cubic-bezier(.22,1,.36,1),
+                  transform .85s cubic-bezier(.22,1,.36,1);
     }
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
+    .rv.d1{ transition-delay:.1s }
+    .rv.d2{ transition-delay:.2s }
+    .rv.d3{ transition-delay:.3s }
+    .rv.d4{ transition-delay:.4s }
+    .rv.on{ opacity:1; transform:none }
+
+    /* ════════════════════════════════
+       HERO
+    ════════════════════════════════ */
+    #hero {
+      background: linear-gradient(139deg,#f7efe8 0%,#f5e7e3 42%,#efe2dd 100%);
+    }
+    .hero-row {
+      max-width: 960px; margin: 0 auto;
+      display: flex; flex-direction: column;
+    }
+    @media(min-width:768px){
+      .hero-row { flex-direction: row; min-height: 820px; }
+    }
+
+    /* left card */
+    .hero-l {
+      flex:1; display:flex; align-items:center; justify-content:center;
+      padding: 48px 24px;
+      border-bottom: 1px solid var(--line);
+    }
+    @media(min-width:768px){
+      .hero-l { padding:64px; border-bottom:none; border-right:1px solid var(--line); }
+    }
+    .hero-card {
+      background:#fff;
+      border:1px solid rgba(255,255,255,.75);
+      box-shadow:0 18px 48px rgba(84,51,59,.08);
+      width:100%; max-width:351px;
+      animation: float 7s ease-in-out infinite;
+    }
+    @keyframes float{ 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+    .hero-card img {
+      width:100%; height:300px; object-fit:cover; object-position:center top;
+    }
+    @media(min-width:768px){ .hero-card img{ height:495px } }
+    .hero-cap { padding:16px 21px; text-align:center; }
+
+    /* right copy */
+    .hero-r {
+      flex:1; display:flex; flex-direction:column; justify-content:center;
+      padding:48px 24px 56px;
+    }
+    @media(min-width:768px){ .hero-r{ padding:64px } }
+
+    .hero-ey { margin-bottom:8px; animation: fd .9s .1s both }
+    .hero-scr {
+      font-size: clamp(3rem,8vw,3.75rem);
+      color:var(--gold); line-height:1; margin-bottom:12px;
+      animation: fd .9s .25s both;
+    }
+    .hero-h1 {
+      font-size: clamp(2rem,5vw,3rem);
+      font-weight:500; line-height:1.32; margin-bottom:16px;
+      animation: fd .9s .38s both;
+    }
+    .hero-sub {
+      font-size:1.125rem; color:var(--wine); line-height:1.6;
+      padding-bottom:20px; border-bottom:1px solid var(--line); margin-bottom:20px;
+      animation: fd .9s .48s both;
+    }
+    .hero-desc {
+      font-size:.9375rem; color:var(--text-s); line-height:1.75; margin-bottom:32px;
+      animation: fd .9s .56s both;
+    }
+    .hero-tags {
+      display:flex; flex-wrap:wrap; gap:8px;
+      animation: fd .9s .64s both;
+    }
+    .tag {
+      font-family:'Montserrat',sans-serif; font-size:.625rem;
+      letter-spacing:.18em; text-transform:uppercase; color:var(--rose-deep);
+      background:rgba(255,255,255,.6); border:1px solid var(--line);
+      border-radius:999px; padding:8px 17px;
+      transition:background .2s, transform .2s;
+    }
+    .tag:hover{ background:rgba(255,255,255,.95); transform:translateY(-2px) }
+    @keyframes fd{ from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:none} }
+
+    /* ════════════════════════════════
+       INTRO
+    ════════════════════════════════ */
+    #intro {
+      background: linear-gradient(180deg,rgba(255,255,255,.5) 0%,rgba(255,255,255,.2) 100%);
+    }
+    .intro-in {
+      max-width:960px; margin:0 auto; padding:80px 24px; text-align:center;
+    }
+    @media(min-width:768px){ .intro-in{ padding:97px 64px 80px } }
+    .intro-ey{ margin-bottom:16px }
+    .intro-h2 {
+      font-size:clamp(1.5rem,4vw,2.25rem);
+      font-weight:500; line-height:1.45; margin-bottom:24px;
+    }
+    .intro-desc {
+      font-size:.9375rem; color:var(--text-s); line-height:1.75;
+      max-width:640px; margin:0 auto;
+    }
+
+    /* ════════════════════════════════
+       PAIN  (이런 아쉬움 / ROI's Answer)
+    ════════════════════════════════ */
+    #pain{ background:#fff }
+    .pain-row {
+      max-width:960px; margin:0 auto;
+      display:flex; flex-direction:column;
+    }
+    @media(min-width:768px){ .pain-row{ flex-direction:row } }
+
+    .pain-l {
+      flex:1; padding:72px 24px;
+    }
+    @media(min-width:768px){ .pain-l{ padding:97px 64px; border-right:1px solid var(--line) } }
+    .pain-ey{ margin-bottom:12px }
+    .pain-h2 {
+      font-size:clamp(1.625rem,4vw,2.25rem);
+      font-weight:500; line-height:1.45; letter-spacing:-.02em; margin-bottom:32px;
+    }
+    .pain-item {
+      font-size:.9375rem; color:var(--text-s); line-height:1.7;
+      padding:18px 0; border-bottom:1px solid var(--line);
+      transition:color .2s;
+    }
+    .pain-item:hover{ color:var(--text-p) }
+
+    .pain-r{ flex:1; padding:72px 24px }
+    @media(min-width:768px){ .pain-r{ padding:97px 64px } }
+    .ans-card {
+      background:rgba(255,255,255,.7); border:1px solid var(--line);
+      box-shadow:0 18px 48px rgba(84,51,59,.08); padding:37px;
+      display:flex; flex-direction:column; gap:16px;
+    }
+    .ans-bold {
+      font-size:1.375rem; font-weight:700; color:var(--wine); line-height:1.55;
+    }
+    .ans-img { width:100%; height:167px; object-fit:cover }
+    .ans-txt {
+      font-size:.9375rem; color:var(--text-s); line-height:1.7;
+    }
+    .ans-txt strong{ font-weight:700; text-decoration:underline; text-underline-offset:2px }
+
+    /* ════════════════════════════════
+       REASONS
+    ════════════════════════════════ */
+    #reasons {
+      background:linear-gradient(180deg,rgba(255,255,255,.3) 0%,rgba(233,214,220,.2) 100%);
+    }
+    .rsn-in { max-width:960px; margin:0 auto; padding:80px 24px }
+    @media(min-width:768px){ .rsn-in{ padding:97px 64px } }
+    .rsn-hd { text-align:center; margin-bottom:56px }
+    .rsn-ey{ margin-bottom:12px }
+    .rsn-h2 {
+      font-size:clamp(1.625rem,4vw,2.25rem);
+      font-weight:500; line-height:1.45; margin-bottom:12px;
+    }
+    .rsn-sub{ font-size:.9375rem; color:var(--text-s); line-height:1.7 }
+    .rsn-grid {
+      display:grid; grid-template-columns:1fr; gap:16px;
+    }
+    @media(min-width:600px){ .rsn-grid{ grid-template-columns:repeat(3,1fr) } }
+    .rsn-card {
+      background:rgba(255,255,255,.8); border:1px solid var(--line);
+      box-shadow:0 18px 48px rgba(84,51,59,.06); padding:32px 24px;
+      transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s;
+    }
+    .rsn-card:hover{ transform:translateY(-6px); box-shadow:0 28px 64px rgba(84,51,59,.12) }
+    .rsn-num { font-family:'Cormorant Garamond',serif; font-size:1rem; color:var(--gold); letter-spacing:.1em; margin-bottom:12px }
+    .rsn-ttl { font-size:1.125rem; font-weight:500; line-height:1.4; margin-bottom:12px }
+    .rsn-dsc { font-size:.875rem; color:var(--text-s); line-height:1.75 }
+
+    /* ════════════════════════════════
+       SCENT
+    ════════════════════════════════ */
+    #scent {
+      background:linear-gradient(180deg,rgba(255,255,255,.5) 0%,rgba(247,239,232,.6) 100%);
+    }
+    .sct-in {
+      max-width:960px; margin:0 auto; padding:72px 24px;
+      display:flex; flex-direction:column; gap:40px;
+    }
+    @media(min-width:768px){ .sct-in{ flex-direction:row; gap:0; padding:97px 64px; align-items:flex-start } }
+
+    .sct-fig{ flex:none; width:100% }
+    @media(min-width:768px){ .sct-fig{ width:374px } }
+    .sct-fig-card { background:#fff; box-shadow:0 18px 48px rgba(84,51,59,.08); padding:16px 16px 0 }
+    .sct-fig-card img { width:100%; height:280px; object-fit:cover }
+    @media(min-width:768px){ .sct-fig-card img{ height:551px } }
+    .sct-fig-cap { padding:12px 0 16px; text-align:center }
+
+    .sct-copy{ flex:1 }
+    @media(min-width:768px){ .sct-copy{ padding-left:56px } }
+    .sct-ey{ margin-bottom:12px }
+    .sct-h2 {
+      font-size:clamp(1.625rem,4vw,2.25rem);
+      font-weight:500; line-height:1.45; margin-bottom:16px;
+    }
+    .sct-intro { font-size:.9375rem; color:var(--text-s); line-height:1.7; margin-bottom:28px }
+    .sct-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:12px }
+    .sct-card {
+      background:rgba(255,255,255,.7); border:1px solid var(--line);
+      box-shadow:0 18px 48px rgba(84,51,59,.08); padding:24px;
+      transition:transform .3s cubic-bezier(.22,1,.36,1);
+    }
+    .sct-card:hover{ transform:translateY(-4px) }
+    .sct-clbl{ margin-bottom:8px }
+    .sct-cttl { font-size:1.125rem; font-weight:500; line-height:1.4; margin-bottom:12px }
+    .sct-cdsc { font-size:.8125rem; color:var(--text-s); line-height:1.75 }
+
+    /* ════════════════════════════════
+       INGREDIENTS
+    ════════════════════════════════ */
+    #ingredients{ background:#fff }
+    .ing-in {
+      max-width:960px; margin:0 auto; padding:72px 24px;
+      display:flex; flex-direction:column; gap:40px;
+    }
+    @media(min-width:768px){ .ing-in{ flex-direction:row; gap:0; padding:97px 64px; align-items:flex-start } }
+    .ing-l{ flex:1 }
+    @media(min-width:768px){ .ing-l{ padding-right:75px } }
+    .ing-ey{ margin-bottom:12px }
+    .ing-h2 {
+      font-size:clamp(1.625rem,4vw,2.25rem);
+      font-weight:500; line-height:1.45; letter-spacing:-.01em; margin-bottom:24px;
+    }
+    .ing-dsc { font-size:.9375rem; color:var(--text-s); line-height:1.75; margin-bottom:14px }
+    .ing-r{ flex:none; width:100% }
+    @media(min-width:768px){ .ing-r{ width:361px } }
+    .ing-r img{ width:100%; height:280px; object-fit:cover }
+    @media(min-width:768px){ .ing-r img{ height:375px } }
+
+    /* ════════════════════════════════
+       BRAND
+    ════════════════════════════════ */
+    #brand{ background:var(--ivory) }
+    .brd-in{ max-width:960px; margin:0 auto; padding:72px 24px }
+    @media(min-width:768px){ .brd-in{ padding:97px 64px } }
+    .brd-ey{ margin-bottom:12px }
+    .brd-h2 {
+      font-size:clamp(1.625rem,4vw,2.25rem);
+      font-weight:500; line-height:1.45; margin-bottom:40px;
+    }
+    .brd-img { width:100%; height:200px; object-fit:cover; margin-bottom:40px }
+    @media(min-width:768px){ .brd-img{ height:299px } }
+    .brd-dsc { font-size:.9375rem; color:var(--text-s); line-height:1.75; margin-bottom:14px }
+
+    /* ════════════════════════════════
+       MOMENTS
+    ════════════════════════════════ */
+    #moments{ background:#fff }
+    .mom-in{ max-width:960px; margin:0 auto; padding:72px 24px }
+    @media(min-width:768px){ .mom-in{ padding:97px 64px } }
+    .mom-ey{ margin-bottom:12px }
+    .mom-h2 {
+      font-size:clamp(1.625rem,4vw,2.25rem);
+      font-weight:500; line-height:1.45; margin-bottom:40px;
+    }
+    .mom-grid {
+      display:grid; grid-template-columns:repeat(2,1fr); gap:16px;
+    }
+    @media(min-width:600px){ .mom-grid{ grid-template-columns:repeat(4,1fr) } }
+    .mom-card {
+      background:rgba(255,255,255,.5);
+      border-top:2px solid var(--gold-line);
+      border:1px solid transparent; border-top:2px solid var(--gold-line);
+      padding:28px;
+      transition:transform .3s cubic-bezier(.22,1,.36,1),box-shadow .3s;
+    }
+    .mom-card:hover{ transform:translateY(-4px); box-shadow:0 12px 32px rgba(84,51,59,.08) }
+    .mom-ttl { font-size:1.125rem; font-weight:500; line-height:1.4; margin-bottom:12px }
+    .mom-dsc { font-size:.8125rem; color:var(--text-s); line-height:1.75 }
+
+    /* ════════════════════════════════
+       GIFT
+    ════════════════════════════════ */
+    #gift{ background:var(--ivory) }
+    .gft-in{ max-width:960px; margin:0 auto; padding:72px 24px }
+    @media(min-width:768px){ .gft-in{ padding:97px 64px } }
+    .gft-top {
+      display:flex; flex-direction:column; gap:24px; margin-bottom:32px;
+    }
+    @media(min-width:768px){ .gft-top{ flex-direction:row; gap:0 } }
+    .gft-l{ flex:1 }
+    @media(min-width:768px){ .gft-l{ padding-right:40px } }
+    .gft-ey{ margin-bottom:12px }
+    .gft-h2 {
+      font-size:clamp(1.625rem,4vw,2.25rem);
+      font-weight:500; line-height:1.45; margin-bottom:16px;
+    }
+    .gft-desc { font-size:.9375rem; color:var(--text-s); line-height:1.75 }
+    .gft-r{ flex:1 }
+    .gft-card {
+      background:linear-gradient(180deg,rgba(255,255,255,.7) 0%,rgba(255,250,246,.95) 100%);
+      border:1px solid var(--line); box-shadow:0 18px 48px rgba(84,51,59,.08); padding:28px;
+    }
+    .gft-cttl { font-size:1.125rem; font-weight:500; margin-bottom:16px }
+    .gft-cdsc { font-size:.9375rem; color:var(--text-s); line-height:1.75; margin-bottom:12px }
+    .gft-img { width:100%; height:240px; object-fit:cover }
+    @media(min-width:768px){ .gft-img{ height:338px } }
+
+    /* ════════════════════════════════
+       FAQ
+    ════════════════════════════════ */
+    #faq{ background:#fff }
+    .faq-in{ max-width:960px; margin:0 auto; padding:72px 24px }
+    @media(min-width:768px){ .faq-in{ padding:97px 64px } }
+    .faq-ey{ margin-bottom:12px }
+    .faq-h2 {
+      font-size:clamp(1.625rem,4vw,2.25rem);
+      font-weight:500; line-height:1.45; margin-bottom:32px;
+    }
+    .faq-item{ border-top:1px solid var(--line) }
+    .faq-item:last-child{ border-bottom:1px solid var(--line) }
+    .faq-btn {
+      width:100%; background:none; border:none; padding:22px 0;
+      display:flex; justify-content:space-between; align-items:center;
+      cursor:pointer; gap:16px; text-align:left;
+    }
+    .faq-q {
+      font-family:'Noto Serif KR',serif; font-size:1.0625rem;
+      font-weight:500; color:var(--text-p); line-height:1.5;
+    }
+    .faq-ico { flex-shrink:0; width:20px; height:20px }
+    .faq-ico svg{ transition:transform .3s cubic-bezier(.22,1,.36,1); display:block }
+    .faq-item.open .faq-ico svg{ transform:rotate(180deg) }
+    .faq-body { max-height:0; overflow:hidden; transition:max-height .4s cubic-bezier(.22,1,.36,1) }
+    .faq-item.open .faq-body{ max-height:200px }
+    .faq-a { font-size:.9375rem; color:var(--text-s); line-height:1.75; padding-bottom:22px }
+
+    /* ════════════════════════════════
+       CTA
+    ════════════════════════════════ */
+    #cta {
+      background:linear-gradient(180deg,rgb(245,236,229) 0%,rgb(240,227,221) 100%);
+    }
+    .cta-in {
+      max-width:960px; margin:0 auto; padding:100px 24px; text-align:center;
+    }
+    @media(min-width:768px){ .cta-in{ padding:120px 64px } }
+    .cta-ey{ margin-bottom:20px }
+    .cta-h2 {
+      font-size:clamp(1.75rem,5vw,3rem);
+      font-weight:500; line-height:1.35; margin-bottom:16px;
+    }
+    .cta-desc {
+      font-size:.9375rem; color:var(--text-s); line-height:1.75;
+      max-width:480px; margin:0 auto 40px;
+    }
+    .cta-btn {
+      display:inline-block; background:var(--wine); color:#fff;
+      font-family:'Montserrat',sans-serif; font-size:.6875rem;
+      letter-spacing:.28em; text-transform:uppercase;
+      padding:20px 48px; text-decoration:none; margin-bottom:20px;
+      transition:background .25s,transform .25s;
+    }
+    .cta-btn:hover{ background:var(--rose-deep); transform:translateY(-2px) }
+    .cta-tag { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:.9375rem; color:var(--text-f) }
+
+    /* ════════════════════════════════
+       FOOTER
+    ════════════════════════════════ */
+    footer{ background:var(--ivory-deep) }
+    .ft-brand {
+      max-width:960px; margin:0 auto; padding:28px 24px;
+      display:flex; flex-direction:column; gap:8px;
+      border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+    }
+    @media(min-width:600px){ .ft-brand{ flex-direction:row; justify-content:space-between } }
+    @media(min-width:768px){ .ft-brand{ padding:28px 64px } }
+    .ft-contact {
+      max-width:960px; margin:0 auto; padding:28px 24px; text-align:center;
+      font-size:.875rem; color:var(--text-s); line-height:1.7;
+      border-bottom:1px solid var(--line);
+    }
+    @media(min-width:768px){ .ft-contact{ padding:28px 64px } }
+    .ft-contact a{ color:var(--rose-deep); text-decoration:none; font-weight:500 }
+
+    /* print */
+    @media print {
+      *{ -webkit-print-color-adjust:exact; print-color-adjust:exact }
+      .faq-body{ max-height:none !important }
+      .cta-btn{ display:none }
+      @keyframes float{ 0%,100%{ transform:none } }
     }
   </style>
 </head>
 <body>
 
-<!-- ══ SECTION 1: HERO ══ -->
+<!-- ══ HERO ══ -->
 <section id="hero">
-  <div class="hero-inner">
-
-    <!-- Left: Product card -->
-    <div class="hero-left">
-      <div class="hero-card">
-        <img src="img-hero-pink.png" alt="ROI 퍼퓸 수제비누 로즈향 핑크 원형" />
-        <div class="hero-card-caption">
-          <span class="label label-faint">PERFUME SOAP ROSE SCENT</span>
-        </div>
+  <div class="hero-row">
+    <div class="hero-l">
+      <div class="hero-card rv">
+        <img src="img-hero-pink.png" alt="ROI 퍼퓸 수제비누 로즈향 원형">
+        <div class="hero-cap"><span class="lbl lbl-f">PERFUME SOAP ROSE SCENT</span></div>
       </div>
     </div>
-
-    <!-- Right: Copy -->
-    <div class="hero-right">
-      <p class="label hero-eyebrow">ROI · PERFUME SOAP ROSE SCENT</p>
-      <h1 class="hero-script">Rose Ritual</h1>
-      <h2 class="hero-h1">당신의 체향을<br>더 우아하게</h2>
+    <div class="hero-r">
+      <p class="lbl hero-ey">ROI · PERFUME SOAP ROSE SCENT</p>
+      <div class="hero-scr script">Rose Ritual</div>
+      <h1 class="hero-h1">당신의 체향을<br>더 우아하게</h1>
       <p class="hero-sub">장미가 머무는 순간,<br>씻는 시간이 향의 루틴이 됩니다.</p>
-      <p class="hero-desc">
-        ROI 퍼퓸 비누 로즈향은 은은한 장미향과 부드러운 세정감, 그리고 세안 후에도 편안하게 남는 촉촉한 인상을 담아낸 향수 비누입니다.<br><br>
-        씻는 순간의 기분부터 스쳐 지나간 뒤 남는 분위기까지, 매일의 비누를 한층 더 고급스럽게 바꿔보세요.
-      </p>
+      <p class="hero-desc">ROI 퍼퓸 비누 로즈향은 은은한 장미향과 부드러운 세정감, 그리고 세안 후에도 편안하게 남는 촉촉한 인상을 담아낸 향수 비누입니다.<br><br>씻는 순간의 기분부터 스쳐 지나간 뒤 남는 분위기까지, 매일의 비누를 한층 더 고급스럽게 바꿔보세요.</p>
       <div class="hero-tags">
         <span class="tag">Rose Scent</span>
         <span class="tag">Soft Cream Soap</span>
@@ -989,332 +475,252 @@
         <span class="tag">Giftable Luxury</span>
       </div>
     </div>
-
   </div>
 </section>
 
-<!-- ══ SECTION 2: PAIN POINTS ══ -->
-<section id="pain" class="section">
-  <div class="pain-inner">
+<!-- ══ INTRO ══ -->
+<section id="intro" class="sec">
+  <div class="intro-in">
+    <p class="lbl intro-ey rv">A Perfumed Daily Ritual</p>
+    <h2 class="intro-h2 rv d1">비누 하나로,<br>체향과 공간의 분위기까지 달라집니다</h2>
+    <p class="intro-desc rv d2">세안하는 순간의 맑은 기분, 욕실에 은은하게 머무는 향,<br>피부 가까이에 조용히 남는 부드러운 장미의 여운까지.<br>ROI 퍼퓸 비누 로즈향은 단지 씻기 위한 비누가 아니라,<br>매일의 루틴을 더 우아하게 완성하는 작은 퍼퓸 오브제입니다.</p>
+  </div>
+</section>
 
-    <div class="pain-left fade-in">
-      <p class="label pain-eyebrow">FOR WOMEN WHO WANT MORE THAN CLEAN SKIN</p>
+<!-- ══ PAIN ══ -->
+<section id="pain" class="sec">
+  <div class="pain-row">
+    <div class="pain-l rv">
+      <p class="lbl pain-ey">For Women Who Want More Than Clean Skin</p>
       <h2 class="pain-h2">이런 아쉬움,<br>한 번쯤 느껴보셨을 거예요</h2>
-      <div class="pain-list">
+      <div>
         <p class="pain-item">향수는 부담스럽고, 수시로 덧뿌려야 해서 오히려 번거롭습니다.</p>
         <p class="pain-item">향초와 방향제는 공간은 채워도, 내 몸의 향이 되지는 않습니다.</p>
-        <p class="pain-item">일반 비누는 씻는 동안만 향이 나고 금세 평범하게 사라집니다.</p>
+        <p class="pain-item">일반 비누는 씻는 동안만 향이 나고 금세 평범하게 사라립니다.</p>
         <p class="pain-item">좋은 향이 나는 사람으로 기억되고 싶지만, 과한 향은 원하지 않습니다.</p>
       </div>
     </div>
-
-    <div class="pain-right">
-      <img src="img-woman-wash.png" alt="여성이 로즈 비누로 세안하는 모습" />
-    </div>
-
-  </div>
-</section>
-
-<!-- ══ SECTION 3: 3 REASONS ══ -->
-<section id="reasons" class="section">
-  <div class="reasons-inner">
-    <div class="reasons-header fade-in">
-      <p class="label reasons-eyebrow">THREE REASONS TO FALL IN LOVE</p>
-      <h2 class="reasons-h2">매일 사용할수록<br>더 만족스러운 이유</h2>
-      <p class="reasons-sub">향의 첫인상은 섬세하게, 사용감은 편안하게, 남겨지는 분위기는 오래도록.<br>ROI 퍼퓸 비누 로즈향은 일상 속에서 가장 자연스럽게 여성스러운 무드를 완성합니다.</p>
-    </div>
-    <div class="reasons-grid">
-      <div class="reason-card fade-in">
-        <div class="reason-num">01</div>
-        <div class="reason-title">은은한 장미 잔향</div>
-        <p class="reason-desc">과하게 앞서지 않고, 가까이 다가설수록 더 고급스럽게 느껴지는 체향을 완성합니다.</p>
-      </div>
-      <div class="reason-card fade-in">
-        <div class="reason-num">02</div>
-        <div class="reason-title">부드러운 세정 루틴</div>
-        <p class="reason-desc">매일 반복되는 세안과 사워가 부담이 아닌, 나를 돌보는 시간으로 완성됩니다.</p>
-      </div>
-      <div class="reason-card fade-in">
-        <div class="reason-num">03</div>
-        <div class="reason-title">공간까지 채우는 무드</div>
-        <p class="reason-desc">욕실과 화장대에 두는 것만으로도 취향 있는 여성의 무드를 연출하는 향수 오브제입니다.</p>
+    <div class="pain-r rv d2">
+      <div class="ans-card">
+        <p class="lbl">ROI's Answer</p>
+        <p class="ans-bold">씻는 순간부터,<br>당신의 분위기가 달라지도록</p>
+        <img class="ans-img" src="img-soap-close.png" alt="ROI 비누 클로즈업">
+        <p class="ans-txt">로이 퍼퓸 비누 로즈향은 장미의 여성스럽고 우아한 무드를 담아 <strong>향수보다 가볍고, 일반 비누보다 더 인상적인 향의 경험</strong>을 제안합니다. 세안과 샤워, 그리고 공간의 분위기까지 하나의 감각으로 연결해보세요.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ SECTION 4: SCENT EXPERIENCE ══ -->
-<section id="scent" class="section">
-  <div class="scent-inner">
-
-    <div class="scent-image">
-      <img src="img-soap-close.png" alt="장미향 비누 클로즈업 텍스처" />
-      <div class="scent-image-caption">
-        <span class="label label-faint" style="background:rgba(255,255,255,0.8);padding:4px 8px;">SOFT ROSE TEXTURE · CLOSE-UP</span>
+<!-- ══ REASONS ══ -->
+<section id="reasons" class="sec">
+  <div class="rsn-in">
+    <div class="rsn-hd rv">
+      <p class="lbl rsn-ey">Three Reasons To Fall In Love</p>
+      <h2 class="rsn-h2">매일 사용할수록<br>더 만족스러운 이유</h2>
+      <p class="rsn-sub">향의 첫인상은 섬세하게, 사용감은 편안하게, 남겨지는 분위기는 오래도록.<br>ROI 퍼퓸 비누 로즈향은 일상 속에서 가장 자연스럽게 여성스러운 무드를 완성합니다.</p>
+    </div>
+    <div class="rsn-grid">
+      <div class="rsn-card rv d1">
+        <div class="rsn-num">01</div>
+        <div class="rsn-ttl">은은한 장미 잔향</div>
+        <p class="rsn-dsc">과하게 앞서지 않고, 가까이 다가설수록 더 고급스럽게 느껴지는 체향을 완성합니다.</p>
+      </div>
+      <div class="rsn-card rv d2">
+        <div class="rsn-num">02</div>
+        <div class="rsn-ttl">부드러운 세정 루틴</div>
+        <p class="rsn-dsc">매일 반복되는 세안과 샤워가 부담이 아닌, 나를 돌보는 시간으로 완성됩니다.</p>
+      </div>
+      <div class="rsn-card rv d3">
+        <div class="rsn-num">03</div>
+        <div class="rsn-ttl">공간까지 채우는 무드</div>
+        <p class="rsn-dsc">욕실과 화장대에 두는 것만으로도 취향 있는 여성의 무드를 연출하는 향수 오브제입니다.</p>
       </div>
     </div>
-
-    <div class="scent-copy fade-in">
-      <p class="label scent-eyebrow">SCENT EXPERIENCE</p>
-      <h2 class="scent-h2">씻고 나면,<br>장미가 남습니다</h2>
-      <div class="scent-stages">
-        <div class="scent-stage">
-          <div class="stage-label-wrap">
-            <span class="stage-label">AFTER WASH</span>
-            <span class="stage-title">세안 직후의<br>첫 향</span>
-          </div>
-          <p class="stage-desc">처음에는 맑고 부드럽게, 시간이 지나면 피부 가까이에 촉촉하게 스며들듯 자연스럽게. 자극적으로 남지 않고 움직일 때마다 향이 "좋은 향이 나는 사람"이라는 인상을 줍니다.</p>
-        </div>
-        <div class="scent-stage">
-          <div class="stage-label-wrap">
-            <span class="stage-label">ON SKIN</span>
-            <span class="stage-title">갓 피어난<br>장미 인상</span>
-          </div>
-          <p class="stage-desc">꽃잎을 닮은 깨끗하고 맑은 인상이 부드럽게 퍼집니다. 향기가 옷과 공간에 은은하게 배어 하루 종일 함께합니다.</p>
-        </div>
-        <div class="scent-stage">
-          <div class="stage-label-wrap">
-            <span class="stage-label">IN ROOM</span>
-            <span class="stage-title">공간에<br>스며드는 향</span>
-          </div>
-          <p class="stage-desc">비누 자체에서 피어나는 로즈 향이 욕실과 화장대 주변을 채웁니다. 보관만 해도 공간의 무드가 달라집니다.</p>
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>
 
-<!-- ══ SECTION 5: INGREDIENTS ══ -->
-<section id="ingredients" class="section">
-  <div class="ingredients-inner">
-    <div class="ingredients-header fade-in">
-      <p class="label ingredients-eyebrow">OUR FORMULA</p>
-      <h2 class="ingredients-h2">오직 진심에서 연구되는<br>브랜드의 기준</h2>
-      <p class="ingredients-desc">로이렙스 비누 로즈향은 일반 비누보다 향수보다 더 인상적인 향의 경험을 제안합니다. 세안과 샤워, 그리고 공간의 분위기까지 하나의 감각으로 연결해 보세요.</p>
-    </div>
-    <div class="ingredients-layout">
-      <div class="ingredients-img fade-in">
-        <img src="img-ingredients.png" alt="ROI 비누 원료 — 장미, 알로에, 에센셜오일" />
+<!-- ══ SCENT ══ -->
+<section id="scent" class="sec">
+  <div class="sct-in">
+    <div class="sct-fig rv">
+      <div class="sct-fig-card">
+        <img src="img-petals.png" alt="장미 꽃잎 클로즈업">
+        <div class="sct-fig-cap"><span class="lbl lbl-f">Soft Rose Texture · Close-Up</span></div>
       </div>
-      <div class="ingredients-list-wrap fade-in">
-        <div class="ing-item">
-          <div class="ing-dot"></div>
-          <div>
-            <div class="ing-name">로즈 퍼퓸 오일</div>
-            <p class="ing-desc">장미꽃의 정수를 담은 향료로, 세안 후에도 자연스럽게 남는 잔향을 만듭니다.</p>
-          </div>
+    </div>
+    <div class="sct-copy rv d2">
+      <p class="lbl sct-ey">Scent Experience</p>
+      <h2 class="sct-h2">씻고 나면,<br>장미가 남습니다</h2>
+      <p class="sct-intro">처음에는 맑고 부드럽게, 시간이 지나면 피부 가까이에 조금 더 은은하게. 자극적으로 남지 않고 움직일 때마다 조용히 스치는 향이 "좋은 향이 나는 사람"이라는 인상을 완성합니다.</p>
+      <div class="sct-cards">
+        <div class="sct-card">
+          <p class="lbl sct-clbl">After Wash</p>
+          <div class="sct-cttl">세안 직후의 첫 향</div>
+          <p class="sct-cdsc">갓 피어난 장미 꽃잎을 닮은 깨끗하고 맑은 인상이 부드럽게 퍼집니다.</p>
         </div>
-        <div class="ing-item">
-          <div class="ing-dot"></div>
-          <div>
-            <div class="ing-name">코코넛 & 팜 오일 베이스</div>
-            <p class="ing-desc">천연 베이스 오일로 만들어진 풍부한 거품과 부드러운 세정감을 선사합니다.</p>
-          </div>
+        <div class="sct-card">
+          <p class="lbl sct-clbl">On Skin</p>
+          <div class="sct-cttl">피부 가까이 남는 여운</div>
+          <p class="sct-cdsc">강하게 남기보다, 부드러운 여성스러움이 오래 머무는 잔향을 지향합니다.</p>
         </div>
-        <div class="ing-item">
-          <div class="ing-dot"></div>
-          <div>
-            <div class="ing-name">알로에 베라 추출물</div>
-            <p class="ing-desc">세안 후 당김 없이 촉촉한 피부결을 유지해줍니다.</p>
-          </div>
-        </div>
-        <div class="ing-item">
-          <div class="ing-dot"></div>
-          <div>
-            <div class="ing-name">건조 장미 꽃잎</div>
-            <p class="ing-desc">비누 표면을 장식하는 실제 장미 꽃잎으로, 향과 비주얼을 함께 완성합니다.</p>
-          </div>
-        </div>
-        <div class="ing-item">
-          <div class="ing-dot"></div>
-          <div>
-            <div class="ing-name">미네랄 화이트닝 성분</div>
-            <p class="ing-desc">깨끗하고 맑은 피부 톤을 위한 미네랄 성분이 함유되어 있습니다.</p>
-          </div>
+        <div class="sct-card">
+          <p class="lbl sct-clbl">In Space</p>
+          <div class="sct-cttl">공간에 스미는 무드</div>
+          <p class="sct-cdsc">욕실과 화장대에 두는 것만으로도 조용하고 우아한 로즈 무드를 완성합니다.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ SECTION 6: BRAND / LAB ══ -->
-<section id="brand" class="section">
-  <div class="brand-inner">
-    <div class="fade-in">
-      <p class="label brand-eyebrow">ABOUT ROYREPS</p>
-      <h2 class="brand-h2">기본 수준에 더 만족스럽습니다</h2>
-      <p class="brand-desc">로이렙스는 뷰티 성분 연구소와 협력하여 향수 경험을 일상의 세안 루틴에 담아낸 브랜드입니다. 단순히 씻기 위한 비누가 아닌, 매일의 작은 사치를 위한 퍼퓸 오브제를 만듭니다.</p>
+<!-- ══ INGREDIENTS ══ -->
+<section id="ingredients" class="sec">
+  <div class="ing-in">
+    <div class="ing-l rv">
+      <p class="lbl ing-ey">Ingredients &amp; Craft</p>
+      <h2 class="ing-h2">좋은 향은<br>좋은 원료에서 시작됩니다</h2>
+      <p class="ing-dsc">로이렙스는 피부에 유익한 한방 원료와 미네랄 성분에 대해 오랜 시간 연구해왔습니다. 장미향의 감성 위에 원료에 대한 진지한 태도를 더해, 단지 향만 좋은 비누가 아니라 오래 두고 쓰고 싶은 비누를 완성하고자 했습니다.</p>
+      <p class="ing-dsc">피부에 직접 닿는 제품인 만큼, 일상 속에서 편안하게 사용할 수 있는 감각과 마무리감을 함께 고민했습니다.</p>
     </div>
-    <img class="brand-img fade-in" src="img-soap-bars.png" alt="로이렙스 연구소 및 생산시설" />
-    <div class="brand-stats fade-in">
-      <div class="stat-cell">
-        <div class="stat-num">100%</div>
-        <div class="stat-label">천연 원료</div>
+    <div class="ing-r rv d2">
+      <img src="img-ingredients.png" alt="ROI 비누 천연 원료">
+    </div>
+  </div>
+</section>
+
+<!-- ══ BRAND ══ -->
+<section id="brand" class="sec">
+  <div class="brd-in">
+    <p class="lbl brd-ey rv">Since 1982</p>
+    <h2 class="brd-h2 rv d1">오랜 시간 비누를 연구해온<br>브랜드의 기준</h2>
+    <img class="brd-img rv d2" src="img-soap-bars.png" alt="로이렙스 연구소 및 생산시설">
+    <div class="rv d3">
+      <p class="brd-dsc">1982년 한방 원료와 광물성 원료를 응용한 비누 연구에서 출발해, 로이렙스는 수십 년간 더 좋은 비누를 만들기 위한 실험과 축적을 이어왔습니다.</p>
+      <p class="brd-dsc">빠르게 소비되는 유행보다, 매일 써도 만족스러운 사용감과 신뢰할 수 있는 원료를 더 중요하게 생각합니다. 그래서 ROI의 비누는 화려한 과장보다 조용한 완성도를 선택합니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ MOMENTS ══ -->
+<section id="moments" class="sec">
+  <div class="mom-in">
+    <p class="lbl mom-ey rv">Daily Ritual</p>
+    <h2 class="mom-h2 rv d1">이런 순간에 더 만족스럽습니다</h2>
+    <div class="mom-grid">
+      <div class="mom-card rv d1">
+        <div class="mom-ttl">아침 세안</div>
+        <p class="mom-dsc">가볍게 정돈된 기분으로 하루를 시작하고 싶을 때.</p>
       </div>
-      <div class="stat-cell">
-        <div class="stat-num">No</div>
-        <div class="stat-label">합성 방부제</div>
+      <div class="mom-card rv d2">
+        <div class="mom-ttl">저녁 샤워</div>
+        <p class="mom-dsc">하루의 끝을 부드러운 장미향으로 차분하게 마무리하고 싶을 때.</p>
       </div>
-      <div class="stat-cell">
-        <div class="stat-num">CP</div>
-        <div class="stat-label">콜드프로세스</div>
+      <div class="mom-card rv d3">
+        <div class="mom-ttl">손세정 루틴</div>
+        <p class="mom-dsc">짧은 순간에도 나를 돌보는 감각적인 기분을 느끼고 싶을 때.</p>
       </div>
-      <div class="stat-cell">
-        <div class="stat-num">KR</div>
-        <div class="stat-label">국내 제조</div>
+      <div class="mom-card rv d4">
+        <div class="mom-ttl">욕실과 화장대</div>
+        <p class="mom-dsc">매일 머무는 공간을 나의 취향으로 조용히 채우고 싶을 때.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ SECTION 7: PACKAGE ══ -->
-<section id="package" class="section">
-  <div class="package-inner">
-
-    <div class="package-copy fade-in">
-      <p class="label package-eyebrow">SIGNATURE PACKAGE</p>
-      <h2 class="package-h2">사랑받는 비누,<br>선물하기 좋은 비누</h2>
-      <p class="package-desc">ROI 퍼퓸 비누 로즈향은 받는 사람이 특별함을 느낄 수 있는 시그니처 패키지로 제공됩니다. 그 자체로 완성된 선물입니다.</p>
-      <div class="package-features">
-        <div class="pkg-feature">
-          <span class="pkg-icon">🌹</span>
-          <div>
-            <strong>아이보리 골드 박스</strong><br>
-            골드 엠보싱 ROI 로고와 장미 일러스트가 새겨진 프리미엄 패키지 박스
-          </div>
-        </div>
-        <div class="pkg-feature">
-          <span class="pkg-icon">✨</span>
-          <div>
-            <strong>단독 선물 포장 가능</strong><br>
-            별도의 포장 없이 그 자체로 선물이 되는 패키지 디자인
-          </div>
-        </div>
-        <div class="pkg-feature">
-          <span class="pkg-icon">💌</span>
-          <div>
-            <strong>세트 구성 문의</strong><br>
-            2개 이상 구매 시 특별 세트 박스 및 리본 포장 요청 가능
-          </div>
+<!-- ══ GIFT ══ -->
+<section id="gift" class="sec">
+  <div class="gft-in">
+    <div class="gft-top">
+      <div class="gft-l rv">
+        <p class="lbl gft-ey">For Me, For Someone Special</p>
+        <h2 class="gft-h2">나를 위한 비누,<br>선물하기 좋은 비누</h2>
+        <p class="gft-desc">장미를 좋아하는 사람에게, 향수보다 은은한 향을 좋아하는 사람에게, 소모품도 취향 있게 고르는 사람에게. ROI 퍼퓸 비누는 작지만 오래 기억되는 감각적인 선물이 되어줍니다.</p>
+      </div>
+      <div class="gft-r rv d2">
+        <div class="gft-card">
+          <div class="gft-cttl">Gift Point</div>
+          <p class="gft-cdsc">원형 비누의 부드러운 실루엣과 로이렙스 전용 패키지는 선물 받는 순간의 인상까지 세심하게 완성합니다.</p>
+          <p class="gft-cdsc">단정하고 여성스러운 무드 덕분에 생일, 답례, 작은 취향 선물로도 잘 어울립니다.</p>
         </div>
       </div>
     </div>
-
-    <div class="package-image">
-      <img src="img-package.png" alt="ROI 로즈 퍼퓸 비누 패키지" />
-    </div>
-
+    <img class="gft-img rv" src="img-package.png" alt="ROI 로즈 퍼퓸 비누 패키지">
   </div>
 </section>
 
-<!-- ══ SECTION 8: FAQ ══ -->
-<section id="faq" class="section">
-  <div class="faq-inner">
-    <p class="label faq-eyebrow">FAQ</p>
-    <h2 class="faq-h2">구매 전 많이 궁금해하시는 점</h2>
-    <div class="faq-list">
+<!-- ══ FAQ ══ -->
+<section id="faq" class="sec">
+  <div class="faq-in">
+    <p class="lbl faq-ey rv">FAQ</p>
+    <h2 class="faq-h2 rv d1">구매 전 많이 궁금해하시는 점</h2>
 
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">
-          <span class="faq-q-text">향은 얼마나 오래 느껴지나요?</span>
-          <span class="faq-icon">
-            <svg viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M0.833333 0.833333L5.83333 5.83333L10.8333 0.833333" stroke="#8F4A5B" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </span>
-        </button>
-        <div class="faq-answer">
-          <p class="faq-a-text">사용 환경과 피부 타입, 활동량에 따라 다르지만 세안이나 샤워 후 은은한 잔향을 느끼실 수 있습니다.</p>
-        </div>
-      </div>
+    <div class="faq-item rv d1">
+      <button class="faq-btn" onclick="toggleFaq(this)">
+        <span class="faq-q">향은 얼마나 오래 느껴지나요?</span>
+        <span class="faq-ico"><svg viewBox="0 0 12 7" fill="none"><path d="M1 1L6 6L11 1" stroke="#8F4A5B" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </button>
+      <div class="faq-body"><p class="faq-a">사용 환경과 피부 타입, 활동량에 따라 다르지만 세안이나 샤워 후 은은한 잔향을 느끼실 수 있습니다.</p></div>
+    </div>
 
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">
-          <span class="faq-q-text">얼굴과 바디 모두 사용 가능한가요?</span>
-          <span class="faq-icon">
-            <svg viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M0.833333 0.833333L5.83333 5.83333L10.8333 0.833333" stroke="#8F4A5B" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </span>
-        </button>
-        <div class="faq-answer">
-          <p class="faq-a-text">데일리 클렌징용으로 사용할 수 있으며, 민감한 피부라면 먼저 작은 부위에 테스트해보시길 권장합니다.</p>
-        </div>
-      </div>
+    <div class="faq-item rv d2">
+      <button class="faq-btn" onclick="toggleFaq(this)">
+        <span class="faq-q">얼굴과 바디 모두 사용 가능한가요?</span>
+        <span class="faq-ico"><svg viewBox="0 0 12 7" fill="none"><path d="M1 1L6 6L11 1" stroke="#8F4A5B" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </button>
+      <div class="faq-body"><p class="faq-a">데일리 클렌징용으로 사용할 수 있으며, 민감한 피부라면 먼저 작은 부위에 테스트해보시길 권장합니다.</p></div>
+    </div>
 
-      <div class="faq-item">
-        <button class="faq-question" onclick="toggleFaq(this)">
-          <span class="faq-q-text">보관만 해도 향이 퍼지나요?</span>
-          <span class="faq-icon">
-            <svg viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M0.833333 0.833333L5.83333 5.83333L10.8333 0.833333" stroke="#8F4A5B" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </span>
-        </button>
-        <div class="faq-answer">
-          <p class="faq-a-text">욕실, 화장대, 서랍 등 작은 공간에 두면 은은한 로즈 무드를 더하는 데 도움이 됩니다.</p>
-        </div>
-      </div>
+    <div class="faq-item rv d3">
+      <button class="faq-btn" onclick="toggleFaq(this)">
+        <span class="faq-q">보관만 해도 향이 퍼지나요?</span>
+        <span class="faq-ico"><svg viewBox="0 0 12 7" fill="none"><path d="M1 1L6 6L11 1" stroke="#8F4A5B" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </button>
+      <div class="faq-body"><p class="faq-a">욕실, 화장대, 서랍 등 작은 공간에 두면 은은한 로즈 무드를 더하는 데 도움이 됩니다.</p></div>
+    </div>
 
-      <div class="faq-item open">
-        <button class="faq-question" onclick="toggleFaq(this)">
-          <span class="faq-q-text">선물용으로도 괜찮나요?</span>
-          <span class="faq-icon">
-            <svg viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M0.833333 0.833333L5.83333 5.83333L10.8333 0.833333" stroke="#8F4A5B" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </span>
-        </button>
-        <div class="faq-answer">
-          <p class="faq-a-text">감각적인 비주얼과 우아한 장미향 무드 덕분에 가볍지만 취향 있는 선물로 잘 어울립니다.</p>
-        </div>
-      </div>
-
+    <div class="faq-item open rv d4">
+      <button class="faq-btn" onclick="toggleFaq(this)">
+        <span class="faq-q">선물용으로도 괜찮나요?</span>
+        <span class="faq-ico"><svg viewBox="0 0 12 7" fill="none"><path d="M1 1L6 6L11 1" stroke="#8F4A5B" stroke-width="1.67" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </button>
+      <div class="faq-body"><p class="faq-a">감각적인 비주얼과 우아한 장미향 무드 덕분에 가볍지만 취향 있는 선물로 잘 어울립니다.</p></div>
     </div>
   </div>
 </section>
 
-<!-- ══ SECTION 9: CTA ══ -->
-<section id="cta" class="section">
-  <div class="cta-inner fade-in">
-    <p class="label cta-eyebrow">ROI PERFUME SOAP</p>
+<!-- ══ CTA ══ -->
+<section id="cta" class="sec">
+  <div class="cta-in rv">
+    <p class="lbl cta-ey">ROI Perfume Soap</p>
     <h2 class="cta-h2">오늘부터,<br>비누도 향이 되는 기준</h2>
     <p class="cta-desc">장미의 부드러움과 핸드크래프트의 정성을 담은 ROI 로즈 퍼퓸 비누. 매일의 세안을 더 우아하게 바꾸는 가장 사적인 퍼퓸 루틴을 시작해보세요.</p>
-    <a href="tel:01074252359" class="cta-btn">SHOP THE ROSE RITUAL</a>
-    <p class="cta-tagline">Perfume Soap · Signature Package · Quiet Luxury Mood</p>
+    <a href="tel:01074252359" class="cta-btn">Shop The Rose Ritual</a><br>
+    <span class="cta-tag">Perfume Soap · Signature Package · Quiet Luxury Mood</span>
   </div>
 </section>
 
 <!-- ══ FOOTER ══ -->
 <footer>
-  <div class="footer-brand">
-    <span class="label label-faint">ROI ROSE PERFUME SOAP</span>
-    <span class="label label-faint">PREPARED FOR LUXURY DETAIL PAGE PRODUCTION</span>
+  <div class="ft-brand">
+    <span class="lbl lbl-f">ROI ROSE PERFUME SOAP</span>
+    <span class="lbl lbl-f">PREPARED FOR LUXURY DETAIL PAGE PRODUCTION</span>
   </div>
-  <div class="footer-contact">
+  <div class="ft-contact">
     소비자 상담 / 구매 문의 : (주)로이렙스 <a href="tel:01074252359">010-7425-2359</a>
   </div>
 </footer>
 
 <script>
-  // FAQ toggle
   function toggleFaq(btn) {
-    const item = btn.closest('.faq-item');
-    item.classList.toggle('open');
+    btn.closest('.faq-item').classList.toggle('open');
   }
 
-  // Scroll fade-in
-  const observer = new IntersectionObserver((entries) => {
+  const io = new IntersectionObserver(entries => {
     entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        observer.unobserve(e.target);
-      }
+      if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); }
     });
   }, { threshold: 0.1 });
-
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  document.querySelectorAll('.rv').forEach(el => io.observe(el));
 </script>
 </body>
 </html>
