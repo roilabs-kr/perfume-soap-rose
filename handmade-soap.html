@@ -161,22 +161,18 @@
 
     /* HERO: 전체 화면 기준 가운데 정렬 */
     .hero {
-      padding: 230px 40px 72px;  /* top: 로고(40+180=220px) + 10px 여백 */
+      padding: 0;
       text-align: center;
       position: relative;
       overflow: hidden;
-
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-
       width: 100vw;
-      /* 양쪽 끝까지 배경 쓰고 싶으면 유지 */
       margin: 0 calc(50% - 50vw);
-      /* 좌우 끝까지 확장 + 중앙 정렬 */
       min-height: 100vh;
     }
+
+    .hero::before { display: none; }
+    .hero::after { display: none; }
+    .hero > * { position: relative; z-index: 1; }
 
     /* 배경 로고: hero 상단 중앙 */
     .hero-bg-logo {
@@ -2277,7 +2273,7 @@
 <body>
 
 <!-- ══ HERO ══ -->
-  <section class="hero" style="padding:0;margin:0 calc(50% - 50vw);width:100vw;min-height:100vh;position:relative;overflow:hidden;display:block;">
+  <section class="hero">
     <video autoplay muted loop playsinline
       style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0;">
       <source src="./0609.mp4" type="video/mp4">
